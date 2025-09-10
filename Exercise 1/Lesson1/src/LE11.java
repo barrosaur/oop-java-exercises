@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class LE11 {
   public static void main(String args[]) {
+    System.out.println("LE11. Change Denomination\n");
     Scanner s = new Scanner(System.in);
     int quarter, dime, nickel, penny;
 
@@ -17,6 +18,7 @@ public class LE11 {
     nickel = coins / 5;
     nickel %= 5;
 
+    // change this when u see the logic
     penny =  coins / 1;
     penny %= 1;
 

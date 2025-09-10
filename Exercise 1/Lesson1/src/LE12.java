@@ -4,7 +4,7 @@ public class LE12 {
   public static void main(String args[]) {
     Scanner s = new Scanner(System.in);
 
-    System.out.println("LE12. Multiply The Digits");
+    System.out.println("LE12. Multiply The Digits\n");
     System.out.println();
     System.out.print("Enter a number between (0-1000): ");
     int num = s.nextInt();
