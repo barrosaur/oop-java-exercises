@@ -25,37 +25,37 @@ public class GradeDistribution {
 		return gradeA + gradeB + gradeC + gradeD + gradeF;
 	}
 	
-	public int percentage(char grade) {
+	public double percentage(char grade) {
 		int total = getTotalNumGrades();
 		if(total == 0) return 0;
 		
-		double percentage = 0;
+		int count = 0;
 		
 		switch (Character.toUpperCase(grade)) {
-		case 'A': percentage = ((double) gradeA / total) * 100; break;
-		case 'B': percentage = ((double) gradeB / total) * 100; break;
-		case 'C': percentage = ((double) gradeC / total) * 100; break;
-		case 'D': percentage = ((double) gradeD / total) * 100; break;
-		case 'F': percentage = ((double) gradeF / total) * 100; break;
+		case 'A': count = gradeA; break;
+		case 'B': count = gradeB; break;
+		case 'C': count = gradeC; break;
+		case 'D': count = gradeD; break;
+		case 'F': count = gradeF; break;
 		}
 		
-		return (int) Math.round(percentage);
+		return (double) count / total * 100.0;
 	}
 	
-	private void drawBar(char grade, int count) {
+	private void drawBar(char grade, double percent) {
 		System.out.print(grade + ": ");
-		for(int i = 0; i < count; i++) {
+		int asterisk = (int) Math.round(percent / 2);
+		for(int i = 0; i < asterisk; i++) {
 			System.out.print("*");
 		}
 		System.out.println();
 	}
 	
 	public void drawBarGrade() {
-		System.out.println("          10|       20|       30|       40|       50|       60|       70|       80|       90|     100|");
-		drawBar('A', gradeA);
-		drawBar('B', gradeB);
-		drawBar('C', gradeC);
-		drawBar('D', gradeD);
-		drawBar('F', gradeF);
+		drawBar('A', percentage('A'));
+		drawBar('B', percentage('B'));
+		drawBar('C', percentage('C'));
+		drawBar('D', percentage('D'));
+		drawBar('F', percentage('F'));
 	}
 }
