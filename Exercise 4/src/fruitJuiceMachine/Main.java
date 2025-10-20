@@ -7,10 +7,10 @@ public class Main {
 		boolean isRunning = true;
 		Scanner scanner = new Scanner(System.in);
 		
-		DispenserType appleJuice = new DispenserType(30,45);
-		DispenserType orangeJuice = new DispenserType();
-		DispenserType mangoLassi = new DispenserType(60,30);
-		DispenserType fruitPunch = new DispenserType();
+		DispenserType appleJuice = new DispenserType(30,45, "Apple Juice");
+		DispenserType orangeJuice = new DispenserType("Orange Juice");
+		DispenserType mangoLassi = new DispenserType(60,30, "Mango Lassi");
+		DispenserType fruitPunch = new DispenserType("Fruit Punch");
 		
 		CashRegister cReg = new CashRegister(1000);
 		
@@ -82,7 +82,7 @@ public class Main {
 				if(payment == item.getCost()) {
 					item.makeSale();
 					cReg.acceptAmount(payment);
-					System.out.println("Enjoy your drink!\n");
+					System.out.println("Enjoy your " + item.getName() + "!\n");
 					break;
 				} else {
 					if(payment < item.getCost()) {
@@ -92,7 +92,7 @@ public class Main {
 						int change = payment - item.getCost();
 						System.out.println("\nYour change: " + change);
 						cReg.acceptAmount(item.getCost());
-						System.out.println("Enjoy your drink!");
+						System.out.println("Enjoy your " + item.getName() + "!");
 						break;
 					}
 				}
