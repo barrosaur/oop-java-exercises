@@ -32,6 +32,13 @@ public class Test {
 		System.out.println("Doctor 1 Specialty: " + b1.getDoctor().getSpecialty());
 		System.out.println("Patient 1: " + b1.getPatient().getName());
 		System.out.println("Patient 1 id: " + b1.getPatient().getId());
+		
+		System.out.println("\n================================================");
+		System.out.println("Doctor 2: " + b2.getDoctor().getName());
+		System.out.println("Doctor 2 Fee: " + b2.getDoctor().getFee());
+		System.out.println("Doctor 2 Specialty: " + b2.getDoctor().getSpecialty());
+		System.out.println("Patient 2: " + b2.getPatient().getName());
+		System.out.println("Patient 2 id: " + b2.getPatient().getId());
 	}
 
 }
