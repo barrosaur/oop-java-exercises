@@ -5,13 +5,36 @@ public class Main {
     public static int orderCount = 0;
 
     public static void main(String[] args) {
+        System.out.println("Welcome to Nell's Diner!");
+        Scanner s = new Scanner(System.in);
+
+        while(true) {
+            System.out.println("\nHow may we serve you?");
+            System.out.println("[1] - Make an order");
+            System.out.println("[2] - Exit");
+            System.out.print("Enter choice: ");
+            int choice = s.nextInt();
+            s.nextLine();
+
+            switch(choice) {
+                case 1:
+                    makeOrder();
+                    break;
+                case 2:
+                    System.out.println("Exiting system...");
+                    System.out.println("Have a great day!");
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid choice. Try again");
+            }
+        }
+    }
+
+    public static void makeOrder() {
         Scanner s = new Scanner(System.in);
 
         FoodItem[] foodItems = declareFoodItems();
         int index = 0;
-
-        System.out.println("Kiosk\n");
-
         ArrayList<MenuItem> orders = new ArrayList<>();
         while(true) {
             System.out.println("\nMake an order!");
@@ -37,9 +60,11 @@ public class Main {
 
             if(opt.equalsIgnoreCase("N")) {
                 Order order = new Order(orders);
+                orderCount++;
                 System.out.println("\nYour orders:");
                 System.out.println("=========================================================");
                 order.displayOrder();
+                System.out.println("\nOrder Count: " + orderCount);
                 break;
             }
 
@@ -55,4 +80,5 @@ public class Main {
 
         return new FoodItem[]{food1, food2, food3, food4, food5};
     }
+
 }
